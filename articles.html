@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Orinoco est un site de vente de produits"
+    />
+    <title>Page d'accueil Orinoco</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+      integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header class="container bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="/images/Logo.png"
+            width="250"
+            height="100"
+            alt="logo du site Orinoco"
+          />
+        </a>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="panier.html"
+              >Panier<span><i class="fas fa-cart-arrow-down"></i></span
+            ></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container my-5">
+      <div class="row my-4 align-items-center">
+        <figure class="col-12 col-lg-6">
+          <img
+            src="/images/vcam_1.jpg"
+            alt="..."
+            class="img-thumbnail img-fluid"
+          />
+        </figure>
+        <div class="col-12 col-lg-6">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Camera</h2>
+              <p class="card-text">
+                Du texte sous le titre dans le corps de carte Lorem
+                ejiejifejideijdeidjejdeidjeidjediejdeidjeifjefndjfkdj
+                fhdkjfhefjefhefjhefjefhe
+              </p>
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                <label
+                  >Quantité:
+                  <input type="number" min="0" max="10" id="quantite" />
+                </label>
+              </p>
+              <p class="card-text">
+                <label>Objectifs</label>
+                <select name="objectifs" id="objectifs" class="">
+                  <option value="10-20mm f/3.5" selected>10-20mm f/3.5</option>
+                  <option value="16-35mm f/4 L IS">16-35mm f/4 L IS</option>
+                  <option value="85mm f/1.8G">85mm f/1.8G</option>
+                  <option value="70-200mm f/4 L USM">70-200mm f/4 L USM</option>
+                  <option value="70-300mm f/4.5-6.3 VR">
+                    70-300mm f/4.5-6.3 VR
+                  </option>
+                </select>
+              </p>
+              <p class="card-text">Prix total :<span></span></p>
+              <button type="button" class="btn btn-primary">
+                Ajouter au panier
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="container bg-dark">
+      <nav>
+        <div class="row pt-4 pb-3">
+          <div class="col">
+            <ul class="list-inline text-center text-white">
+              <li class="list-inline-item">
+                <a href="#" class="text-white">À propos</a>
+              </li>
+              <li class="list-inline-item">&middot;</li>
+              <li class="list-inline-item">
+                <a href="#" class="text-white">Vie privée</a>
+              </li>
+              <li class="list-inline-item">&middot;</li>
+              <li class="list-inline-item">
+                <a href="#" class="text-white">Conditions d'utilisations</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </footer>
+
+    <!-- Script Js et Bootstrap-->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Fin Script Js et Bootstrap-->
+  </body>
+</html>
