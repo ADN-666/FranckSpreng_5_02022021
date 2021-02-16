@@ -29,7 +29,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark">
           <a class="navbar-brand" href="index.html">
             <img
-              src="/images/Logo.png"
+              src="./Sources/images/Logo.png"
               width="250"
               height="100"
               alt="logo du site Orinoco"
@@ -48,26 +48,8 @@
         </nav>
       </header>
     </div>
-    <main class="container">
-      <div class="row jumbotron my-3 w-75 mx-auto">
-        <div class="col-12 col-lg-4">
-          <img
-            src="/images/vcam_1.jpg"
-            class="img-thumbnail img-fluid"
-            alt="Photo de l'article choisi"
-          />
-        </div>
-        <div class="col-12 col-lg-4">
-          <h1>Zurss 50S</h1>
-          <p>Quantité :<span></span></p>
-          <p>Lentilles : <span></span></p>
-          <p>Prix : <span></span></p>
-        </div>
-        <div class="col-12 col-lg-4 align-self-center text-center">
-          <button class="btn btn-danger">Supprimer l'article</button>
-        </div>
-      </div>
-      <form class="needs-validation jumbotron w-75 mx-auto" novalidate>
+    <main id="container" class="container">
+      <form class="needs-validation jumbotron w-75 mx-auto" id="form">
         <h2 class="text-center mt-n4 mb-5">
           Formulaire de validation de commande
         </h2>
@@ -135,7 +117,11 @@
           </div>
         </div>
         <div class="row justify-content-center">
-          <button class="btn btn-primary btn-lg w-50 mt-3 mb-n4" type="submit">
+          <button
+            class="btn btn-primary btn-lg w-50 mt-3 mb-n4"
+            type="submit"
+            id="btn"
+          >
             Envoyer
           </button>
         </div>
@@ -184,36 +170,12 @@
     ></script>
     <!-- Fin Script Js et Bootstrap-->
 
+    <script type="module" src="./Scripts/panier.js"></script>
+
     <!-- Script de validation du formulaire-->
     <script>
       /*La fonction principale de ce script est d'empêcher l'envoi du formulaire si un champ a été mal rempli
        *et d'appliquer les styles de validation aux différents éléments de formulaire*/
-      (function () {
-        "use strict";
-        window.addEventListener(
-          "load",
-          function () {
-            let forms = document.getElementsByClassName("needs-validation");
-            let validation = Array.prototype.filter.call(
-              forms,
-              function (form) {
-                form.addEventListener(
-                  "submit",
-                  function (event) {
-                    if (form.checkValidity() === false) {
-                      event.preventDefault();
-                      event.stopPropagation();
-                    }
-                    form.classList.add("was-validated");
-                  },
-                  false
-                );
-              }
-            );
-          },
-          false
-        );
-      })();
     </script>
     <!-- Fin du script de validation-->
   </body>

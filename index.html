@@ -29,7 +29,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark">
           <a class="navbar-brand" href="index.html">
             <img
-              src="/images/Logo.png"
+              src="./Sources/images/Logo.png"
               width="250"
               height="100"
               alt="logo du site Orinoco"
@@ -49,78 +49,9 @@
       </header>
     </div>
     <main class="container">
-      <section class="row justify-content-around">
+      <section class="row">
         <h1 class="col-12 text-center my-5">Les Caméras Vintages</h1>
-        <article class="col-12 col-lg-5 mb-4">
-          <figure class="card mb-4 mb-lg-0 border-primary shadow">
-            <img
-              src="/images/vcam_1.jpg"
-              alt="Appareil Photo"
-              class="card-img-top"
-            />
-            <div class="card-body">
-              <h2 class="card-title">Zurss 50S</h2>
-              <p class="card-text">499.00 €</p>
-              <a href="articles.html" class="btn btn-primary">Plus de détail</a>
-            </div>
-          </figure>
-        </article>
-        <article class="col-12 col-lg-5 mb-4">
-          <figure class="card mb-4 mb-lg-0 border-primary shadow">
-            <img
-              src="/images/vcam_2.jpg"
-              alt="Appareil Photo"
-              class="card-img-top"
-            />
-            <div class="card-body">
-              <h2 class="card-title">Hirsch 400DTS</h2>
-              <p class="card-text">3099.00 €</p>
-              <a href="article.html" class="btn btn-primary">Plus de détail</a>
-            </div>
-          </figure>
-        </article>
-        <article class="col-12 col-lg-5 mb-4">
-          <figure class="card mb-4 mb-lg-0 border-primary shadow">
-            <img
-              src="/images/vcam_3.jpg"
-              alt="Appareil Photo"
-              class="card-img-top"
-            />
-            <div class="card-body">
-              <h2 class="card-title">Zurss 50S</h2>
-              <p class="card-text">499.00 €</p>
-              <a href="article.html" class="btn btn-primary">Plus de détail</a>
-            </div>
-          </figure>
-        </article>
-        <article class="col-12 col-lg-5 mb-4">
-          <figure class="card mb-4 mb-lg-0 border-primary shadow">
-            <img
-              src="/images/vcam_4.jpg"
-              alt="Appareil Photo"
-              class="card-img-top"
-            />
-            <div class="card-body">
-              <h2 class="card-title">Zurss 50S</h2>
-              <p class="card-text">499.00 €</p>
-              <a href="article.html" class="btn btn-primary">Plus de détail</a>
-            </div>
-          </figure>
-        </article>
-        <article class="col-12 col-lg-5 mb-4">
-          <figure class="card mb-4 mb-lg-0 border-primary shadow">
-            <img
-              src="/images/vcam_5.jpg"
-              alt="Appareil Photo"
-              class="card-img-top"
-            />
-            <div class="card-body">
-              <h2 class="card-title">Zurss 50S</h2>
-              <p class="card-text">499.00 €</p>
-              <a href="article.html" class="btn btn-primary">Plus de détail</a>
-            </div>
-          </figure>
-        </article>
+        <div id="container_index" class="row justify-content-around"></div>
       </section>
     </main>
     <footer class="container bg-dark">
@@ -165,5 +96,11 @@
       crossorigin="anonymous"
     ></script>
     <!-- Fin Script Js et Bootstrap-->
+    <!-- Script de fonctionnement du site-->
+    <script
+      type="module"
+      src="/Scripts/index.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

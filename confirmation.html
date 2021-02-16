@@ -23,7 +23,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark">
           <a class="navbar-brand" href="index.html">
             <img
-              src="/images/Logo.png"
+              src="./Sources/images/Logo.png"
               width="250"
               height="100"
               alt="logo du site Orinoco"
@@ -47,14 +47,17 @@
         <h4>Confirmation de commande</h4>
       </div>
       <div class="row jumbotron my-5">
-        <h5>Commande n° <span></span> validée</h5>
+        <h5 class="col-12">Commande n° <span id="order"></span> validée</h5>
+        <h5 class="col-12">Montant total : <span id="total"></span> €</h5>
         <p>
           Nous vous remercions d'avoir utilisé nos services et esperons que vous
           serez satisfait de votre achat.
         </p>
       </div>
       <div class="row my-5 justify-content-center">
-        <a href="index.html" class="btn btn-info">Retour à l'accueil</a>
+        <a href="index.html" class="btn btn-info" id="accueil"
+          >Retour à l'accueil</a
+        >
       </div>
     </main>
     <footer class="container bg-dark">
@@ -99,5 +102,7 @@
       crossorigin="anonymous"
     ></script>
     <!-- Fin Script Js et Bootstrap-->
+
+    <script src="./Scripts/confirmation.js"></script>
   </body>
 </html>

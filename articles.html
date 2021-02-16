@@ -28,7 +28,7 @@
       <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="index.html">
           <img
-            src="/images/Logo.png"
+            src="./Sources/images/Logo.png"
             width="250"
             height="100"
             alt="logo du site Orinoco"
@@ -48,44 +48,29 @@
     </header>
     <main class="container my-5">
       <div class="row my-4 align-items-center">
-        <figure class="col-12 col-lg-6">
-          <img
-            src="/images/vcam_1.jpg"
-            alt="..."
-            class="img-thumbnail img-fluid"
-          />
-        </figure>
+        <figure id="figArticle" class="col-12 col-lg-6"></figure>
         <div class="col-12 col-lg-6">
           <div class="card">
-            <div class="card-header">
-              <h2 class="card-title">Camera</h2>
-              <p class="card-text">
-                Du texte sous le titre dans le corps de carte Lorem
-                ejiejifejideijdeidjejdeidjeidjediejdeidjeifjefndjfkdj
-                fhdkjfhefjefhefjhefjefhe
-              </p>
-            </div>
+            <div id="titreArticle" class="card-header"></div>
             <div class="card-body">
               <p class="card-text">
                 <label
                   >Quantité:
-                  <input type="number" min="0" max="10" id="quantite" />
+                  <input
+                    type="number"
+                    min="1"
+                    max="10"
+                    value="1"
+                    id="quantite"
+                  />
                 </label>
               </p>
               <p class="card-text">
                 <label>Objectifs</label>
-                <select name="objectifs" id="objectifs" class="">
-                  <option value="10-20mm f/3.5" selected>10-20mm f/3.5</option>
-                  <option value="16-35mm f/4 L IS">16-35mm f/4 L IS</option>
-                  <option value="85mm f/1.8G">85mm f/1.8G</option>
-                  <option value="70-200mm f/4 L USM">70-200mm f/4 L USM</option>
-                  <option value="70-300mm f/4.5-6.3 VR">
-                    70-300mm f/4.5-6.3 VR
-                  </option>
-                </select>
+                <select name="objectifs" id="objectifs" class=""></select>
               </p>
-              <p class="card-text">Prix total :<span></span></p>
-              <button type="button" class="btn btn-primary">
+              <p class="card-text">Prix total :<span id="prxTotal"></span></p>
+              <button type="button" class="btn btn-primary" id="panier">
                 Ajouter au panier
               </button>
             </div>
@@ -135,5 +120,7 @@
       crossorigin="anonymous"
     ></script>
     <!-- Fin Script Js et Bootstrap-->
+
+    <script type="module" src="/Scripts/articles.js"></script>
   </body>
 </html>
