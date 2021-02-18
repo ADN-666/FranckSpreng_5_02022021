@@ -1,4 +1,4 @@
-/node_modules
+BackEnd/node_modules
 /.idea
-package-lock.json
-/Dossier_Projet_Orinoco
+BackEnd/package-lock.json
+Frontend/Dossier_Projet_Orinoco
