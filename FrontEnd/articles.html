@@ -24,35 +24,59 @@
     />
   </head>
   <body>
-    <div class="">
-      <header class="container bg-dark">
-        <nav class="navbar navbar-expand-lg navbar-dark">
-          <a class="navbar-brand" href="index.html">
-            <img
-              src="./Sources/images/Logo.png"
-              width="250"
-              height="100"
-              alt="logo du site Orinoco"
-            />
-          </a>
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="index.html">Accueil</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="panier.html"
-                >Panier<span><i class="fas fa-cart-arrow-down"></i></span
-              ></a>
-            </li>
-          </ul>
-        </nav>
-      </header>
-    </div>
-    <main class="container">
-      <section class="row">
-        <h1 class="col-12 text-center my-5">Les Caméras Vintages</h1>
-        <div id="container_index" class="row justify-content-around"></div>
-      </section>
+    <header class="container bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="../BackEnd/images/Logo.png"
+            width="250"
+            height="100"
+            alt="logo du site Orinoco"
+          />
+        </a>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="panier.html"
+              >Panier<span><i class="fas fa-cart-arrow-down"></i></span
+            ></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container my-5">
+      <div class="row my-4 align-items-center">
+        <figure id="figArticle" class="col-12 col-lg-6"></figure>
+        <div class="col-12 col-lg-6">
+          <div class="card">
+            <div id="titreArticle" class="card-header"></div>
+            <div class="card-body">
+              <p class="card-text">
+                <label
+                  >Quantité:
+                  <input
+                    type="number"
+                    min="1"
+                    max="10"
+                    value="1"
+                    id="quantite"
+                  />
+                </label>
+              </p>
+              <p class="card-text">
+                <label>Objectifs</label>
+                <select name="objectifs" id="objectifs" class=""></select>
+              </p>
+              <p class="card-text">Prix total :<span id="prxTotal"></span></p>
+              <button type="button" class="btn btn-primary" id="panier">
+                Ajouter au panier
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <footer class="container bg-dark">
       <nav>
@@ -96,11 +120,7 @@
       crossorigin="anonymous"
     ></script>
     <!-- Fin Script Js et Bootstrap-->
-    <!-- Script de fonctionnement du site-->
-    <script
-      type="module"
-      src="/Scripts/index.js"
-      crossorigin="anonymous"
-    ></script>
+
+    <script type="module" src="../FrontEnd/Scripts/articles.js"></script>
   </body>
 </html>

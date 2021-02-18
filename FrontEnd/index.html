@@ -16,6 +16,12 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+      integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <div class="">
@@ -23,7 +29,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark">
           <a class="navbar-brand" href="index.html">
             <img
-              src="./Sources/images/Logo.png"
+              src="../BackEnd/images/Logo.png"
               width="250"
               height="100"
               alt="logo du site Orinoco"
@@ -35,30 +41,18 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="panier.html"
-                >Panier<span>ico_panier</span></a
-              >
+                >Panier<span><i class="fas fa-cart-arrow-down"></i></span
+              ></a>
             </li>
           </ul>
         </nav>
       </header>
     </div>
-    <main class="container w-75">
-      <div class="row jumbotron my-5 bg-secondary">
-        <h4>Confirmation de commande</h4>
-      </div>
-      <div class="row jumbotron my-5">
-        <h5 class="col-12">Commande n° <span id="order"></span> validée</h5>
-        <h5 class="col-12">Montant total : <span id="total"></span> €</h5>
-        <p>
-          Nous vous remercions d'avoir utilisé nos services et esperons que vous
-          serez satisfait de votre achat.
-        </p>
-      </div>
-      <div class="row my-5 justify-content-center">
-        <a href="index.html" class="btn btn-info" id="accueil"
-          >Retour à l'accueil</a
-        >
-      </div>
+    <main class="container">
+      <section class="row">
+        <h1 class="col-12 text-center my-5">Les Caméras Vintages</h1>
+        <div id="container_index" class="row justify-content-around"></div>
+      </section>
     </main>
     <footer class="container bg-dark">
       <nav>
@@ -102,7 +96,7 @@
       crossorigin="anonymous"
     ></script>
     <!-- Fin Script Js et Bootstrap-->
-
-    <script src="./Scripts/confirmation.js"></script>
+    <!-- Script de fonctionnement du site-->
+    <script type="module" src="../FrontEnd/Scripts/index.js"></script>
   </body>
 </html>

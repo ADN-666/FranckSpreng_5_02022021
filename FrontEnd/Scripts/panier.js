@@ -2,10 +2,10 @@
 // par localStorage
 
 let itemPanier = [];
-    for (let i = 0; i < localStorage.length; i++) {
-        let key = localStorage.key(i);
+for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i);
         itemPanier.push(JSON.parse(localStorage.getItem(key)));
-}
+};
 
 // déclaration du tableau contenant le panier final et récupération des articles
 // par localStorage pour validation
@@ -93,6 +93,33 @@ let panierFinal = [];
         };    
 };
 
+// fonction de validation du formulaire
+
+const validForm = (contact) => {
+    if (contact.firstName && contact.lastName && contact.address && contact.city && contact.email != "") {
+        return true;
+    }
+    else {
+        return false;
+    }
+};
+
+const validFetch = (contact,products) => {
+        fetch("http://localhost:3000/api/cameras/order", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ contact, products })
+        })
+            .then(response => response.json())
+            .then(data => {
+                sessionStorage.setItem("orderId", JSON.stringify(data.orderId));
+                window.location = "./confirmation.html";
+            })
+            .catch(err => console.log(`erreur message : ${err}`))
+    
+    }
 
 if (itemPanier.length == 0) {
         
@@ -101,14 +128,9 @@ if (itemPanier.length == 0) {
 } 
 listPanier();
 
-
-
-
-
-    let form = document.getElementById("form");
-form.addEventListener("submit", function (event) {
-
-    let nom = document.getElementById("nom");
+let btn = document.getElementById("btn");
+btn.addEventListener("click", function (event) {
+let nom = document.getElementById("nom");
 let prenom = document.getElementById("prenom");
 let adresse = document.getElementById("adresse");
 let ville = document.getElementById("ville");
@@ -121,30 +143,17 @@ let contact = {
     city: ville.value,
     email: email.value,
 };
-    let products = [];
+  
+let products = [];
     for (let i in panierFinal) {
         products.push(panierFinal[i].id);
     }; 
-    
-    if ((contact != null || contact != undefined)&&(products != null || products != undefined)) {
-        fetch("http://localhost:3000/api/cameras/order", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ contact, products })
-        })
-            .then((res) => res.json())
-            .then((res) => {
-                localStorage.setItem("orderId", JSON.stringify(res.orderId));
-                window.location = "./confirmation.html";
-            })
-            .catch((err) => console.log(`erreur message : ${err}`));
+
+    if (validForm(contact) === true) {
+        
+        validFetch(contact, products)
+
     }
-    event.preventDefault;
-    });
 
-    
-
-
+});
 
