@@ -6,8 +6,8 @@ let getId = params.get("id");
 
 recupIdCamera(getId).then(camera => {
     
-        const figArticle = document.getElementById("figArticle");
-        const imgArticle = document.createElement("img");
+    const figArticle = document.getElementById("figArticle");
+    const imgArticle = document.createElement("img");
     imgArticle.setAttribute("src", camera.imageUrl);
     imgArticle.setAttribute("class", "img-thumbnail img-fluid");
     figArticle.appendChild(imgArticle);
@@ -31,7 +31,7 @@ recupIdCamera(getId).then(camera => {
         selectArticle.appendChild(optionArticle);
     };
 
-          prxTotal.innerHTML = camera.prix + " " + "€";  
+    prxTotal.innerHTML = camera.prix + " " + "€";  
         
     document.getElementById("quantite").addEventListener
         ("input", function (event) {
@@ -52,11 +52,17 @@ recupIdCamera(getId).then(camera => {
                 prix: camera.prix
             };
 
-            localStorage.setItem(camera.id, JSON.stringify(item));
+            if (localStorage.key(item.id) == item.id) {
+                let modifItem = JSON.parse(localStorage.getItem(item.id));
+                let modifQte = modifItem.qte;
+                item.qte = parseInt(modifQte,10) + parseInt(item.qte,10);     
+            }
             
+            localStorage.setItem(camera.id, JSON.stringify(item));
             window.location = "./index.html";
+            
+            
         });
-
     });
 
 

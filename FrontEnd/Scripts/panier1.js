@@ -26,13 +26,13 @@ for (let i in panierFinal) {
 const totalCommande = () => {
     const parentDiv = document.getElementById("container");
     const divRowTotal = document.createElement("div");
-    divRowTotal.setAttribute("class", "row mx-auto  w-50 text-center ");
-    parentDiv.insertBefore(divRowTotal, document.querySelector("form"));
+    divRowTotal.setAttribute("class", "row mx-auto w-50");
+    parentDiv.appendChild(divRowTotal);
     const divColTotal = document.createElement("div");
-    divColTotal.setAttribute("class", "col-12 bg-secondary rounded mb-3 ");
+    divColTotal.setAttribute("class", "col-12 bg-secondary");
     divRowTotal.appendChild(divColTotal);
     const pTotal = document.createElement("p");
-    pTotal.setAttribute("class", "total my-2 text-white ");
+    pTotal.setAttribute("class", "total");
     divColTotal.appendChild(pTotal);
     pTotal.innerHTML = `Le montant total de votre commande est de : ${prixTotal} €`;
     
@@ -124,15 +124,15 @@ const totalCommande = () => {
 
 // fonction de validation du formulaire
 
-const validForm = (contact) => {
-    valid();
+/*const validForm = (contact) => {
+    valid(contact);
     if (contact.firstName && contact.lastName && contact.address && contact.city && contact.email != "") {
         return true;
     }
     else {
         return false;
     }
-};
+};*/
 
 // Fonction d'envoi du Fetch
 
@@ -163,48 +163,35 @@ if (itemPanier.length == 0) {
 listPanier();
 totalCommande();
 
-const valid = () => {
+const valid = (contact) => {
              'use strict';
-             
-                 let forms = document.getElementsByClassName('needs-validation');
-               let validation = Array.prototype.filter.call(forms, function(form) {
-                 form.addEventListener('click', function(event) {
+    let myForm = document.getElementById("myForm");
+    contact = new FormData(myForm);
+               let validation = Array.prototype.filter.call(myForm, function(form) {
+                 form.addEventListener('submit', function(event) {
                    if (form.checkValidity() === false) {
                      event.preventDefault();
                      event.stopPropagation();
                    }
-                   form.classList.add('was-validated');
+                     form.classList.add('was-validated');
+                     
                  }, false);
+                   
                });
-    
-           };
-
-let btn = document.getElementById("btn");
-btn.addEventListener("click", function (event) {
-let lastName = document.getElementById("lastName");
-let firstName = document.getElementById("firstName");
-let adress = document.getElementById("adress");
-let city = document.getElementById("city");
-let email = document.getElementById("email");
-    
-let contact = {
-    firstName: firstName.value,
-    lastName: lastName.value,
-    address: adress.value,
-    city: city.value,
-    email: email.value,
-};
-  
-let products = [];
+    let products = [];
     for (let i in panierFinal) {
         products.push(panierFinal[i].id);
-    }; 
+        };
+                     envoiFetch(contact, products);
+           };
 
-    if (validForm(contact) === true) {
+     
+
+    
+valid(); 
         
-        envoiFetch(contact, products)
 
-    }
+    
 
-});
+
 

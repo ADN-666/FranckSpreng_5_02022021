@@ -11,7 +11,7 @@ import {Cameras} from "./Camera.js"
             .then(data => {
                 let camera = [];
                 for (let i in data) {
-                    camera[i] = new Cameras(data[i]._id, data[i].name, data[i].price, data[i].description,
+                    camera[i] = new Cameras(data[i]._id, data[i].name, (data[i].price/100), data[i].description,
                         data[i].imageUrl, data[i].lenses);
                 }
                 return camera;
@@ -26,18 +26,14 @@ export function recupIdCamera(getId) {
         .then(response => response.json())
 
         .then(data => {
-            let camera = new Cameras(data._id, data.name, data.price, data.description,
+            let camera = new Cameras(data._id, data.name, (data.price/100), data.description,
                 data.imageUrl, data.lenses);
         return camera;
         });          
             }
 
-// Création de la fonction recupCameraPanier qui permet de récupérer la caméra à mettre dans le panier
 
-export function recupCameraPanier(getId) {
-    return recupIdCamera(getId).then(camera => {
-        return camera;
-    });
-}
+
+
 
 

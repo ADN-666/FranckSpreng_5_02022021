@@ -36,10 +36,10 @@
             />
           </a>
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="index.html">Accueil</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="panier.html"
                 >Panier<span><i class="fas fa-cart-arrow-down"></i></span
               ></a>
@@ -49,56 +49,69 @@
       </header>
     </div>
     <main id="container" class="container">
-      <form class="needs-validation jumbotron w-75 mx-auto" novalidate>
+      <form
+        class="needs-validation jumbotron w-75 mx-auto"
+        id="myForm"
+        name="myForm"
+        novalidate
+      >
         <h2 class="text-center mt-n4 mb-5">
           Formulaire de validation de commande
         </h2>
         <div class="form-row">
           <div class="col-12 mb-3">
-            <label for="nom">Nom</label>
+            <label for="lastName">Nom</label>
             <input
               type="text"
               class="form-control"
-              id="nom"
+              id="lastName"
+              name="lastName"
               placeholder="Dupont"
               required
+              pattern="[A-Za-z\séöàäèüáúóêûîôâ']{2,25}"
             />
             <div class="valid-feedback">Ok !</div>
             <div class="invalid-feedback">Valeur incorrecte</div>
           </div>
           <div class="col-12 mb-3">
-            <label for="prenom">Prénom</label>
+            <label for="firstName">Prénom</label>
             <input
               type="text"
               class="form-control"
-              id="prenom"
+              id="firstName"
+              name="firstName"
               placeholder="Pierre"
               required
+              pattern="[A-Za-z\séöàäèüáúóêûîôâ']{2,25}"
             />
             <div class="valid-feedback">Ok !</div>
             <div class="invalid-feedback">Valeur incorrecte</div>
           </div>
           <div class="col-12 mb-3">
-            <label for="adresse">Adresse</label>
+            <label for="adress">Adresse</label>
             <input
               type="text"
               class="form-control"
-              id="adresse"
+              id="adress"
+              name="adress"
               placeholder="44 Route de gaillard"
               required
+              pattern="[A-Za-z-0-9\s'\-éöàäèüáúóêûîôâ]{10,50}"
             />
             <div class="valid-feedback">Ok !</div>
             <div class="invalid-feedback">Valeur incorrecte</div>
           </div>
 
           <div class="col-12 mb-3">
-            <label for="ville">Ville</label>
+            <label for="city">Ville</label>
             <input
               type="text"
               class="form-control"
-              id="ville"
+              id="city"
+              name="city"
               placeholder="Paris"
               required
+              pattern="[A-Za-z'\-\séöàäèüáúóêûîôâ]{3,30}"
             />
             <div class="valid-feedback">Ok !</div>
             <div class="invalid-feedback">Valeur incorrecte</div>
@@ -109,8 +122,10 @@
               type="email"
               class="form-control"
               id="email"
+              name="email"
               placeholder="exemple@yahoo.com"
               required
+              pattern="[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})"
             />
             <div class="valid-feedback">Ok !</div>
             <div class="invalid-feedback">Valeur incorrecte</div>
@@ -171,12 +186,5 @@
     <!-- Fin Script Js et Bootstrap-->
 
     <script type="module" src="../FrontEnd/Scripts/panier.js"></script>
-
-    <!-- Script de validation du formulaire-->
-    <script>
-      /*La fonction principale de ce script est d'empêcher l'envoi du formulaire si un champ a été mal rempli
-       *et d'appliquer les styles de validation aux différents éléments de formulaire*/
-    </script>
-    <!-- Fin du script de validation-->
   </body>
 </html>
