@@ -37,11 +37,13 @@
           </a>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Accueil</a>
+              <a class="nav-link h5" href="index.html">Accueil</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="panier.html"
-                >Panier<span><i class="fas fa-cart-arrow-down"></i></span
+              <a class="nav-link h5" href="panier.html"
+                >Panier<span
+                  ><i class="fas fa-cart-arrow-down"></i
+                  ><span id="nbItem"></span></span
               ></a>
             </li>
           </ul>
@@ -49,12 +51,13 @@
       </header>
     </div>
     <main id="container" class="container">
-      <form
-        class="needs-validation jumbotron w-75 mx-auto"
-        id="myForm"
-        name="myForm"
-        novalidate
-      >
+      <img
+        id="panierVide"
+        src="../BackEnd/images/panier_vide.png"
+        alt="Photo de caddie vide"
+        class="d-none"
+      />
+      <form class="d-none" id="form" method="POST" novalidate>
         <h2 class="text-center mt-n4 mb-5">
           Formulaire de validation de commande
         </h2>
@@ -68,10 +71,12 @@
               name="lastName"
               placeholder="Dupont"
               required
-              pattern="[A-Za-z\séöàäèüáúóêûîôâ']{2,25}"
             />
             <div class="valid-feedback">Ok !</div>
-            <div class="invalid-feedback">Valeur incorrecte</div>
+            <div class="invalid-feedback">
+              Veuillez rentrer un nom contenant au moins deux lettres et
+              uniquement des lettres
+            </div>
           </div>
           <div class="col-12 mb-3">
             <label for="firstName">Prénom</label>
@@ -82,24 +87,27 @@
               name="firstName"
               placeholder="Pierre"
               required
-              pattern="[A-Za-z\séöàäèüáúóêûîôâ']{2,25}"
             />
             <div class="valid-feedback">Ok !</div>
-            <div class="invalid-feedback">Valeur incorrecte</div>
+            <div class="invalid-feedback">
+              Veuillez rentrer un prénom contenant au moins deux lettres et
+              uniquement des lettres
+            </div>
           </div>
           <div class="col-12 mb-3">
-            <label for="adress">Adresse</label>
+            <label for="address"></label>
             <input
               type="text"
               class="form-control"
-              id="adress"
-              name="adress"
+              id="address"
+              name="address"
               placeholder="44 Route de gaillard"
               required
-              pattern="[A-Za-z-0-9\s'\-éöàäèüáúóêûîôâ]{10,50}"
             />
             <div class="valid-feedback">Ok !</div>
-            <div class="invalid-feedback">Valeur incorrecte</div>
+            <div class="invalid-feedback">
+              Veuillez rentrer une adresse contenant au moins 6 caractères
+            </div>
           </div>
 
           <div class="col-12 mb-3">
@@ -111,10 +119,12 @@
               name="city"
               placeholder="Paris"
               required
-              pattern="[A-Za-z'\-\séöàäèüáúóêûîôâ]{3,30}"
             />
             <div class="valid-feedback">Ok !</div>
-            <div class="invalid-feedback">Valeur incorrecte</div>
+            <div class="invalid-feedback">
+              Veuillez rentrer une ville contenant au moins 1 lettre et
+              uniquement des lettres
+            </div>
           </div>
           <div class="col-12 mb-3">
             <label for="email">Email</label>
@@ -125,10 +135,11 @@
               name="email"
               placeholder="exemple@yahoo.com"
               required
-              pattern="[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})"
             />
             <div class="valid-feedback">Ok !</div>
-            <div class="invalid-feedback">Valeur incorrecte</div>
+            <div class="invalid-feedback">
+              Veuillez rentrer un Email contenant un @ et un point
+            </div>
           </div>
         </div>
         <div class="row justify-content-center">
@@ -156,7 +167,7 @@
               </li>
               <li class="list-inline-item">&middot;</li>
               <li class="list-inline-item">
-                <a href="#" class="text-white">Conditions d'utilisations</a>
+                <a href="#" class="text-white">Conditions d'utilisation</a>
               </li>
             </ul>
           </div>

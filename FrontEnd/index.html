@@ -35,13 +35,15 @@
               alt="logo du site Orinoco"
             />
           </a>
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav ml-auto align-items-center">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Accueil</a>
+              <a class="nav-link h5" href="index.html">Accueil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="panier.html"
-                >Panier<span><i class="fas fa-cart-arrow-down"></i></span
+              <a class="nav-link h5" href="panier.html"
+                >Panier<span
+                  ><i class="fas fa-cart-arrow-down"></i
+                  ><span id="nbItem"></span></span
               ></a>
             </li>
           </ul>
@@ -51,7 +53,20 @@
     <main class="container">
       <section class="row">
         <h1 class="col-12 text-center my-5">Les Caméras Vintages</h1>
-        <div id="container_index" class="row justify-content-around"></div>
+        <div id="container_index" class="row justify-content-around">
+          <template id="templateIndex">
+            <article class="col-12 col-lg-5 mb-4">
+              <figure id="fig" class="card mb-4 mb-lg-0 border-primary shadow">
+                <img id="img" src="" class="card-img-top" />
+                <div class="card-body">
+                  <h2 id="h2" class="card-title"></h2>
+                  <h5 id="p" class="card-text"></h5>
+                  <a id="a" href="" class="btn btn-primary"></a>
+                </div>
+              </figure>
+            </article>
+          </template>
+        </div>
       </section>
     </main>
     <footer class="container bg-dark">
@@ -68,7 +83,7 @@
               </li>
               <li class="list-inline-item">&middot;</li>
               <li class="list-inline-item">
-                <a href="#" class="text-white">Conditions d'utilisations</a>
+                <a href="#" class="text-white">Conditions d'utilisation</a>
               </li>
             </ul>
           </div>

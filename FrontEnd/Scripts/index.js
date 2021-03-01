@@ -1,49 +1,29 @@
-
- 
 // Utilisation de la fonction recupCamera pour affichage de la page index.html
-import { recupCamera } from "./modules/ImportCams.js";
-recupCamera().then(camera => {
-    for (let i in camera) {
+import { recupCamera } from "./modules/fetchApi.js";
+import { nbItem } from "./modules/divers.js";
 
-        const container_index = document.getElementById("container_index")
+(async function () {
+  nbItem();
+  const cameras = await recupCamera();
 
-        const articleArticle = document.createElement("article");
-        articleArticle.setAttribute("class", "col-12 col-lg-5 mb-4");
-        container_index.appendChild(articleArticle);
+  for (let camera of cameras) {
+    displayIndex(camera);
+  }
+  console.log(cameras.length);
+})();
 
-        const figureArticle = document.createElement("figure");
-        figureArticle.setAttribute("id", camera[i].id);
-        figureArticle.setAttribute("class", "card mb-4 mb-lg-0 border-primary shadow");
-        articleArticle.appendChild(figureArticle);
+const displayIndex = (camera) => {
+  const templateIndex = document.getElementById("templateIndex");
+  const cloneElt = document.importNode(templateIndex.content, true);
 
-        const imgArticle = document.createElement("img");
-        imgArticle.setAttribute("src", camera[i].imageUrl);
-        imgArticle.setAttribute("class", "card-img-top");
-        figureArticle.appendChild(imgArticle);
+  cloneElt.getElementById("fig").setAttribute("id", camera.id);
+  cloneElt.getElementById("img").setAttribute("src", camera.imageUrl);
+  cloneElt.getElementById("h2").innerHTML += camera.nom;
+  cloneElt.getElementById("p").innerHTML += camera.prix + " €";
+  cloneElt
+    .getElementById("a")
+    .setAttribute("href", `articles.html?id=${camera.id}`);
+  cloneElt.getElementById("a").textContent += "Plus de détail";
 
-        const divArticle = document.createElement("div");
-        divArticle.setAttribute("class", "card-body");
-        figureArticle.appendChild(divArticle);
-
-        const titreArticle = document.createElement("h2");
-        titreArticle.setAttribute("class", "card-title");
-        divArticle.appendChild(titreArticle);
-        titreArticle.innerHTML += camera[i].nom;
-
-        const paraArticle = document.createElement("p");
-        paraArticle.setAttribute("class", "card-text");
-        divArticle.appendChild(paraArticle);
-        paraArticle.innerHTML += camera[i].prix + " €";
-
-        const lienArticle = document.createElement("a");
-        lienArticle.setAttribute("href", "articles.html?id=" + camera[i].id);
-        lienArticle.setAttribute("class", "btn btn-primary");
-        divArticle.appendChild(lienArticle);
-        lienArticle.innerHTML += "Plus de détail";
-        
-    }
-    
-});
-
-
-// catch à rajouter
+  document.getElementById("container_index").appendChild(cloneElt);
+};

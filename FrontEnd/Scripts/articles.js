@@ -1,68 +1,58 @@
-import { recupIdCamera } from "./modules/ImportCams.js";
-//let regex = /[=]/;
-//let getId = location.search.split(regex)[1];
-let params = (new URL(document.location)).searchParams;
+import { nbItem } from "./modules/divers.js";
+import { recupIdCamera } from "./modules/fetchApi.js";
+
+let params = new URL(document.location).searchParams;
 let getId = params.get("id");
 
-recupIdCamera(getId).then(camera => {
-    
-    const figArticle = document.getElementById("figArticle");
-    const imgArticle = document.createElement("img");
-    imgArticle.setAttribute("src", camera.imageUrl);
-    imgArticle.setAttribute("class", "img-thumbnail img-fluid");
-    figArticle.appendChild(imgArticle);
+(async function () {
+  nbItem();
+  const camera = await recupIdCamera(getId);
 
-    const titreArticle = document.getElementById("titreArticle");
-    const h2Article = document.createElement("h2");
-    h2Article.setAttribute("class", "card-title");
-    h2Article.innerHTML = camera.nom;
-    titreArticle.appendChild(h2Article);
-    
-    const texteArticle = document.createElement("p");
-    texteArticle.setAttribute("class", "card-text");
-    texteArticle.innerHTML = camera.description;
-    titreArticle.appendChild(texteArticle);
+  displayCamera(camera);
+})();
 
-    for (let i in camera.lentilles) {
-        const selectArticle = document.getElementById("objectifs");
-        const optionArticle = document.createElement("option");
-        optionArticle.setAttribute("value", camera.lentilles[i]);
-        optionArticle.innerHTML = camera.lentilles[i];
-        selectArticle.appendChild(optionArticle);
-    };
+const displayCamera = (camera) => {
+  document.getElementById("imgArticle").setAttribute("src", camera.imageUrl);
+  document.getElementById("titreArticle").textContent = camera.nom;
+  document.getElementById("paraArticle").textContent = camera.description;
 
-    prxTotal.innerHTML = camera.prix + " " + "€";  
-        
-    document.getElementById("quantite").addEventListener
-        ("input", function (event) {
-            const prxTotal = document.getElementById("prxTotal");
-            let quantite = event.target.value;
-            prxTotal.innerHTML = " " + quantite * camera.prix + " " + "€";
-        });
+  for (let lentille of camera.lentilles) {
+    const selectArticle = document.getElementById("objectifs");
+    const optionArticle = document.createElement("option");
+    optionArticle.setAttribute("value", lentille);
+    optionArticle.innerHTML = lentille;
+    selectArticle.appendChild(optionArticle);
+  }
 
-    document.getElementById("panier").addEventListener
-        ("click", function (event) {
+  prxTotal.innerHTML = camera.prix + " " + "€";
 
-            let item = {
-                id: camera.id,
-                nom: camera.nom,
-                image: camera.imageUrl,
-                qte: document.getElementById("quantite").value,
-                lentille: document.getElementById("objectifs").value,
-                prix: camera.prix
-            };
-
-            if (localStorage.key(item.id) == item.id) {
-                let modifItem = JSON.parse(localStorage.getItem(item.id));
-                let modifQte = modifItem.qte;
-                item.qte = parseInt(modifQte,10) + parseInt(item.qte,10);     
-            }
-            
-            localStorage.setItem(camera.id, JSON.stringify(item));
-            window.location = "./index.html";
-            
-            
-        });
+  document
+    .getElementById("quantite")
+    .addEventListener("input", function quantite(event) {
+      const prxTotal = document.getElementById("prxTotal");
+      let qte = event.target.value;
+      prxTotal.textContent = " " + qte * camera.prix + " " + "€";
     });
 
+  document
+    .getElementById("panier")
+    .addEventListener("click", function panier(event) {
+      let item = {
+        id: camera.id,
+        nom: camera.nom,
+        image: camera.imageUrl,
+        qte: document.getElementById("quantite").value,
+        lentille: document.getElementById("objectifs").value,
+        prix: camera.prix,
+      };
 
+      if (localStorage.key(item.id) == item.id) {
+        let modifItem = JSON.parse(localStorage.getItem(item.id));
+        let modifQte = modifItem.qte;
+        item.qte = parseInt(modifQte, 10) + parseInt(item.qte, 10);
+      }
+
+      localStorage.setItem(camera.id, JSON.stringify(item));
+      window.location = "./index.html";
+    });
+};

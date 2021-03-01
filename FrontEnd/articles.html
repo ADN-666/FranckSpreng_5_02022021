@@ -36,11 +36,13 @@
         </a>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Accueil</a>
+            <a class="nav-link h5" href="index.html">Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="panier.html"
-              >Panier<span><i class="fas fa-cart-arrow-down"></i></span
+            <a class="nav-link h5" href="panier.html"
+              >Panier<span
+                ><i class="fas fa-cart-arrow-down"></i
+                ><span id="nbItem"></span></span
             ></a>
           </li>
         </ul>
@@ -48,14 +50,24 @@
     </header>
     <main class="container my-5">
       <div class="row my-4 align-items-center">
-        <figure id="figArticle" class="col-12 col-lg-6"></figure>
+        <figure id="figArticle" class="col-12 col-lg-6">
+          <img
+            id="imgArticle"
+            src="#"
+            alt="Photo appareil photo"
+            class="img-thumbnail img-fluid"
+          />
+        </figure>
         <div class="col-12 col-lg-6">
           <div class="card">
-            <div id="titreArticle" class="card-header"></div>
+            <div class="card-header">
+              <h2 id="titreArticle" class="card-title">Nom de l'appareil</h2>
+              <p id="paraArticle" class="card-text">lorem ipsum</p>
+            </div>
             <div class="card-body">
               <p class="card-text">
                 <label
-                  >Quantité:
+                  >Quantité :
                   <input
                     type="number"
                     min="1"
@@ -66,10 +78,10 @@
                 </label>
               </p>
               <p class="card-text">
-                <label>Objectifs</label>
+                <label>Objectifs : </label>
                 <select name="objectifs" id="objectifs" class=""></select>
               </p>
-              <p class="card-text">Prix total :<span id="prxTotal"></span></p>
+              <p class="card-text">Prix total : <span id="prxTotal"></span></p>
               <button type="button" class="btn btn-primary" id="panier">
                 Ajouter au panier
               </button>
@@ -92,7 +104,7 @@
               </li>
               <li class="list-inline-item">&middot;</li>
               <li class="list-inline-item">
-                <a href="#" class="text-white">Conditions d'utilisations</a>
+                <a href="#" class="text-white">Conditions d'utilisation</a>
               </li>
             </ul>
           </div>
