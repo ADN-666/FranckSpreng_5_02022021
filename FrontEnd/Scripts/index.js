@@ -1,6 +1,8 @@
-// Utilisation de la fonction recupCamera pour affichage de la page index.html
 import { recupCamera } from "./modules/fetchApi.js";
-import { nbItem } from "./modules/divers.js";
+import { nbItem } from "./modules/fonctions.js";
+
+// fonction globale de la page qui appelle le fetch pour l'ensemble des caméras
+// l'affichage de celle-ci et le nombre d'articles dans le panier
 
 (async function () {
   nbItem();
@@ -11,6 +13,8 @@ import { nbItem } from "./modules/divers.js";
   }
   console.log(cameras.length);
 })();
+
+// fonction d'affichage des caméras
 
 const displayIndex = (camera) => {
   const templateIndex = document.getElementById("templateIndex");

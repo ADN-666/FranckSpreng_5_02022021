@@ -1,15 +1,19 @@
-import { nbItem } from "./modules/divers.js";
+import { nbItem } from "./modules/fonctions.js";
 import { recupIdCamera } from "./modules/fetchApi.js";
 
 let params = new URL(document.location).searchParams;
 let getId = params.get("id");
 
-(async function () {
-  nbItem();
-  const camera = await recupIdCamera(getId);
+// Fonction globale de la page qui appelle une caméra par le fetch puis l'affiche
+// et calcule le nombre d'article présent dans le panier
 
+(async function () {
+  const camera = await recupIdCamera(getId);
   displayCamera(camera);
+  nbItem();
 })();
+
+// fonction d'affichage de la camera sélectionné
 
 const displayCamera = (camera) => {
   document.getElementById("imgArticle").setAttribute("src", camera.imageUrl);
@@ -20,7 +24,7 @@ const displayCamera = (camera) => {
     const selectArticle = document.getElementById("objectifs");
     const optionArticle = document.createElement("option");
     optionArticle.setAttribute("value", lentille);
-    optionArticle.innerHTML = lentille;
+    optionArticle.textContent = lentille;
     selectArticle.appendChild(optionArticle);
   }
 
@@ -31,7 +35,14 @@ const displayCamera = (camera) => {
     .addEventListener("input", function quantite(event) {
       const prxTotal = document.getElementById("prxTotal");
       let qte = event.target.value;
-      prxTotal.textContent = " " + qte * camera.prix + " " + "€";
+      if (qte == "" || qte < 1 || qte > 10) {
+        alert("Veuillez entrer une quantité entre 1 et 10");
+        event.target.value = 1;
+        qte = 1;
+        prxTotal.textContent = " " + qte * camera.prix + " " + "€";
+      } else {
+        prxTotal.textContent = " " + qte * camera.prix + " " + "€";
+      }
     });
 
   document

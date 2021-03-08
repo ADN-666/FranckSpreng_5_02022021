@@ -1,4 +1,4 @@
-import { nbItem } from "./modules/divers.js";
+import { nbItem } from "./modules/fonctions.js";
 import { validForm } from "./modules/validation.js";
 
 // déclaration du tableau contenant les articles du panier et récupération des articles
@@ -106,9 +106,15 @@ const displayPanier = () => {
 
     qtePanier.addEventListener("change", function changeQte(event) {
       item.qte = event.target.value;
-      localStorage.setItem(item.id, JSON.stringify(item));
-      prixPanier.innerHTML =
-        "Prix total : " + " " + item.prix * item.qte + " €";
+      if (item.qte == "" || item.qte < 1 || item.qte > 10) {
+        alert("Veuillez entrer une quantité entre 1 et 10");
+        prixPanier.textContent =
+          "Prix total : " + " " + item.prix * item.qte + " €";
+      } else {
+        localStorage.setItem(item.id, JSON.stringify(item));
+        prixPanier.textContent =
+          "Prix total : " + " " + item.prix * item.qte + " €";
+      }
     });
 
     // suppression des articles du panier
@@ -116,16 +122,18 @@ const displayPanier = () => {
     btnPanier.addEventListener("click", function supArticle() {
       document.getElementById("container").removeChild(contenuPanier);
       localStorage.removeItem(item.id);
-
       window.location = "./panier.html";
     });
   }
 };
 
-// Fonction principale de la page
+// condition permettant l'affichage ou non du panier
+// si la condition est vrai le panier ne s'affiche pas et l'utilisateur retourne
+//  à la page d'accueil, si la condition est fausse appel des fonctions calculant le nb
+// d'articles dans le panier, de l'affichage du panier, du total de la commande puis
+// la validation et l'envoi du formulaire
 
 if (itemPanier.length == 0) {
-  //document.getElementById("panierVide").setAttribute("class", "img-fluid");
   alert("votre panier est vide, veuillez choisir un article en page d'accueil");
   window.location = "./index.html";
 } else {

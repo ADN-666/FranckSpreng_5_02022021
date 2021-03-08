@@ -1,4 +1,4 @@
-import { Cameras } from "./divers.js";
+import { Cameras } from "./fonctions.js";
 
 // Création de la fonction recupCamera qui permet de récupérer les données de l'API pour la page index.html
 // ainsi que la création d'un tableau par rapport à la classe caméra
@@ -46,7 +46,7 @@ export function recupIdCamera(getId) {
     .catch((err) => console.log(`erreur message : ${err}`));
 }
 
-// Fonction d'envoi du Fetch
+// Fonction d'envoi du contact et des produits par Fetch
 
 export const envoiFetch = (contact, products) => {
   fetch("http://localhost:3000/api/cameras/order", {

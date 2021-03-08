@@ -10,6 +10,8 @@ export class Cameras {
   }
 }
 
+// Création de la fonction de calcul du nombre d'articles dans le panier
+
 export const nbItem = () => {
   let itemPanier = [];
   for (let i = 0; i < localStorage.length; i++) {
@@ -21,5 +23,5 @@ export const nbItem = () => {
   for (let item of itemPanier) {
     qteItem += parseInt(item.qte, 10);
   }
-  document.getElementById("nbItem").textContent = "(" + qteItem + ")";
+  document.getElementById("nbItem").textContent = qteItem;
 };

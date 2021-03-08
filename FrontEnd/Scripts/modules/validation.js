@@ -1,6 +1,7 @@
 import { envoiFetch } from "./fetchApi.js";
 
-// fonctions de validation du formulaire
+// fonctions de validation du formulaire par regex, création du tableau products et de l'objet
+// contact
 
 export const validForm = (itemPanier) => {
   const lastName = document.getElementById("lastName");
@@ -16,7 +17,7 @@ export const validForm = (itemPanier) => {
   }
 
   const regex = (contact) => {
-    const regexName = /[A-Za-z\séöàäèüáúóêûîôâ']{2,25}/;
+    const regexName = /[A-Za-z\s\-éöàäèüáúóêûîôâ']{2,25}/;
     const regexAddress = /[A-Za-z-0-9\s'\-éöàäèüáúóêûîôâ]{6,50}/;
     const regexCity = /[A-Za-z'\-\séöàäèüáúóêûîôâ]{3,30}/;
     const regexEmail = /[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})/;
