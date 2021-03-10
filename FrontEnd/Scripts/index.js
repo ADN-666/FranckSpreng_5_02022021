@@ -11,7 +11,6 @@ import { nbItem } from "./modules/fonctions.js";
   for (let camera of cameras) {
     displayIndex(camera);
   }
-  console.log(cameras.length);
 })();
 
 // fonction d'affichage des caméras
