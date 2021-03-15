@@ -21,8 +21,8 @@ const displayIndex = (camera) => {
 
   cloneElt.getElementById("fig").setAttribute("id", camera.id);
   cloneElt.getElementById("img").setAttribute("src", camera.imageUrl);
-  cloneElt.getElementById("h2").innerHTML += camera.nom;
-  cloneElt.getElementById("p").innerHTML += camera.prix + " €";
+  cloneElt.getElementById("h2").textContent += camera.nom;
+  cloneElt.getElementById("p").textContent += camera.prix + " €";
   cloneElt
     .getElementById("a")
     .setAttribute("href", `articles.html?id=${camera.id}`);

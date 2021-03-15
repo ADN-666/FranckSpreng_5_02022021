@@ -12,7 +12,7 @@ for (let i = 0; i < localStorage.length; i++) {
   itemPanier.push(JSON.parse(localStorage.getItem(key)));
 }
 
-// variable réupérant le montant total de la commande et affichage
+// variable récupérant le montant total de la commande et affichage
 
 let totalOrder = 0;
 for (let item of itemPanier) {
